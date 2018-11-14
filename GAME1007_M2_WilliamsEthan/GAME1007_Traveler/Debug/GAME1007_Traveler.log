@@ -1,0 +1,5 @@
+﻿  Main.cpp
+d:\game1007_m2_williamsethan\game1007_traveler\classes.h(46): warning C4138: '*/' found outside of comment
+d:\game1007_m2_williamsethan\game1007_traveler\classes.h(46): error C2059: syntax error: '*'
+d:\game1007_m2_williamsethan\game1007_traveler\classes.h(47): error C2238: unexpected token(s) preceding ';'
+d:\game1007_m2_williamsethan\game1007_traveler\classes.h(50): error C2614: 'Player': illegal member initialization: 'm_x' is not a base or member
