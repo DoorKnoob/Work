@@ -1,0 +1,4 @@
+﻿  Main.cpp
+d:\rectangle intro to programming\rectangle intro to programming\main.cpp(63): warning C4101: 'width': unreferenced local variable
+d:\rectangle intro to programming\rectangle intro to programming\main.cpp(62): warning C4101: 'length': unreferenced local variable
+  Rectangle intro to programming.vcxproj -> D:\Rectangle intro to programming\x64\Debug\Rectangle intro to programming.exe

@@ -1,0 +1,5 @@
+﻿  GAME1001_AI_WilliamsEthan.cpp
+d:\game1001_ai_williamsethan\game1001_ai_williamsethan\game1001_ai_williamsethan.cpp(13): warning C4101: 'playerCount': unreferenced local variable
+d:\game1001_ai_williamsethan\game1001_ai_williamsethan\game1001_ai_williamsethan.cpp(13): warning C4101: 'playerTwoChoice': unreferenced local variable
+d:\game1001_ai_williamsethan\game1001_ai_williamsethan\game1001_ai_williamsethan.cpp(13): warning C4101: 'currentPlayer': unreferenced local variable
+  GAME1001_AI_WilliamsEthan.vcxproj -> D:\GAME1001_AI_WilliamsEthan\Debug\GAME1001_AI_WilliamsEthan.exe

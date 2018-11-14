@@ -1,0 +1,4 @@
+﻿  Intro to programming.cpp
+d:\intro to programming\intro to programming\intro to programming.cpp(36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+d:\intro to programming\intro to programming\intro to programming.cpp(62): warning C4552: '*': result of expression not used
+d:\intro to programming\intro to programming\intro to programming.cpp(65): error C4716: 'powCalc': must return a value

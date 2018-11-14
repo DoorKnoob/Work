@@ -1,0 +1,6 @@
+﻿  Assignment Total Mark.cpp
+f:\assignment total mark\assignment total mark\assignment total mark.cpp(40): warning C4804: '<': unsafe use of type 'bool' in operation
+f:\assignment total mark\assignment total mark\assignment total mark.cpp(45): warning C4804: '<': unsafe use of type 'bool' in operation
+f:\assignment total mark\assignment total mark\assignment total mark.cpp(50): warning C4804: '<': unsafe use of type 'bool' in operation
+f:\assignment total mark\assignment total mark\assignment total mark.cpp(55): warning C4804: '<': unsafe use of type 'bool' in operation
+  Assignment Total Mark.vcxproj -> F:\Assignment Total Mark\Debug\Assignment Total Mark.exe
