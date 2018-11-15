@@ -44,13 +44,13 @@ class Player : public LOTile
 {
 public:
 
-	//int m_x;
-	//int m_y;
-
-	Player(int x, int y) : m_x(x), m_y(y) // Note the initializers for the properties and empty {}.
+	Player(int x, int y)
+	:LOTile(x, y)
 	{
-		// Nothing needed in here. 
+		
+		m_cOutput == '@'; 
 	}
+	
 };
 
 class BGTile : public Sprite
