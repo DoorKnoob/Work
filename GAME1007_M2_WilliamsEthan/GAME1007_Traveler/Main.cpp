@@ -47,11 +47,11 @@ void PrintMap(BGTile m[][COLS], Player& p)
 int main()
 {
 	bool quit = false;
-	BGTile map[ROWS][COLS]; // 2D array of characters.
+	Level levels[5]; // Single demention array 
 	char input;
 	Player player(COLS / 2, ROWS / 2);
 
-	if (BuildMap(map) == 1)
+	if (BuildMap(levels[0], "level1.txt") == 1)
 		return 1;
 	while (!quit)
 	{
