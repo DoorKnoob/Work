@@ -9,7 +9,7 @@ using namespace std;
 bool BuildMap(Level& l, const char* n) // Passing 2D array to function.
 {
 	ifstream inFile("Level1.txt");
-	ifstream inFile("Level2.txt"); 
+	//ifstream inFile("Level2.txt"); 
 	if (inFile.is_open())
 	{
 		char temp;
@@ -46,11 +46,22 @@ void PrintMap(Level& l, Player& p)
 	}
 }
 
-
-void checkDoor(Level, Player)
+void CheckDoor(Level& l, Player& p, int& c)
 {
-	
+	for (int i = 0; i < l.m_iNumDoors; i++)
+	{
+		cout << p.m_x << p.m_y << endl << l.doors[i].m_x <<endl <<  l.doors[i].m_y;
+		
+		if (p.m_x == l.doors[i].m_x && p.m_y == l.doors[i].m_y)
+		{
+			c = l.doors[i].m_iToLevel; 
+			p.m_x = l.doors[i].m_iDestX; 
+			p.m_y = l.doors[i].m_iDestY;
+		}
+	}
 }
+
+
 
 int main()
 {
@@ -60,22 +71,25 @@ int main()
 	int currLevel = 0;
 	Player player(COLS / 2, ROWS / 2);
 
-	if (BuildMap(levels[0], "Level1.txt") == 1)
-		return 1;
-	levels[0].AddDoor(18, 18, 1, 15, 2); 
-
-	if (BuildMap(levels[1], "Level2.txt") == 1)
-		return 1;
-	
-		while (!quit)
+	while (!quit)
 	{
+		
+
+		if (BuildMap(levels[0], "Level1.txt") == 1)
+			return 1;
+		levels[0].AddDoor(17, 18, 1, 15, 2);
+
+		if (BuildMap(levels[1], "Level2.txt") == 1)
+			return 1;
+
+
 		PrintMap(levels[0], player);
 		input = _getch();
 		switch (input)
 		{
 		case 'w':  // Up.
 			if (player.m_y > 0 && levels[currLevel].map[player.m_y - 1][player.m_x].m_bIsObstacle != true)
-				if (player.m_y > 0) 
+				if (player.m_y > 0)
 					player.m_y--;
 			break;
 		case 's': // Down.
@@ -101,11 +115,11 @@ int main()
 			quit = true;
 			cout << "You have stepped in a puddle of bleach and died" << endl;
 		}
-
 		if (levels[currLevel].map[player.m_y][player.m_x].m_cOutput == 'D')
 		{
-			 
+			CheckDoor(levels[currLevel], player, currLevel);
 		}
+		
 
 	}
 	system("pause");
