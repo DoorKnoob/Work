@@ -124,7 +124,8 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Level.txt" />
+    <Text Include="Level1.txt" />
+    <Text Include="Level2.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes.h" />

@@ -1,4 +1,6 @@
 #pragma once
+#define ROWS 24
+#define COLS 32
 
 /* Important note: x coordinate is player's COLUMN position and
    y coordinate is player's ROW position. Don't mix these up! */
@@ -55,7 +57,7 @@ public:
 	Player(int x, int y) : LOTile(x, y)
 
 	{
-		m_cOutput == '@';
+		m_cOutput = '@';
 	}
 
 };
@@ -73,6 +75,7 @@ public:
 		m_cOutput = 'D';
 	}
 
+
 	void SetDoor(const int m_x, const int m_y, const int m_iToLevel, const int m_iDestX, const int m_iDestY)
 	{
 
@@ -89,6 +92,7 @@ public:
 class Level
 {
 public:
+
 	int m_iNumDoors;
 	BGTile map[24][32];
 	Door doors[3]; //Keeps track of doors in level
@@ -103,12 +107,9 @@ public:
 
 		if (m_iNumDoors < 3)
 		{
-			doors[m_iNumDoors++].SetDoor(m_x, m_y, m_iToLevel, m_iDestX, m_iDestY);
+			doors[m_iNumDoors].SetDoor(m_x, m_y, m_iToLevel, m_iDestX, m_iDestY);
+			m_iNumDoors++; 
 		}
-
-		else
-			cout << "Cannot add door. Limit reached." << endl;
-
 	}
 };
 

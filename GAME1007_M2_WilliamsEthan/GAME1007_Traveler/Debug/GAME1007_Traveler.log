@@ -1,11 +1,2 @@
 ﻿  Main.cpp
-d:\game1007_m2_williamsethan\game1007_traveler\classes.h(58): warning C4553: '==': result of expression not used; did you intend '='?
-d:\game1007_m2_williamsethan\game1007_traveler\classes.h(110): error C2065: 'cout': undeclared identifier
-d:\game1007_m2_williamsethan\game1007_traveler\classes.h(110): error C2065: 'endl': undeclared identifier
-d:\game1007_m2_williamsethan\game1007_traveler\main.cpp(54): error C2660: 'BuildMap': function does not take 2 arguments
-  d:\game1007_m2_williamsethan\game1007_traveler\main.cpp(9): note: see declaration of 'BuildMap'
-d:\game1007_m2_williamsethan\game1007_traveler\main.cpp(58): error C2065: 'map': undeclared identifier
-d:\game1007_m2_williamsethan\game1007_traveler\main.cpp(63): error C2065: 'map': undeclared identifier
-d:\game1007_m2_williamsethan\game1007_traveler\main.cpp(68): error C2065: 'map': undeclared identifier
-d:\game1007_m2_williamsethan\game1007_traveler\main.cpp(72): error C2065: 'map': undeclared identifier
-d:\game1007_m2_williamsethan\game1007_traveler\main.cpp(76): error C2065: 'map': undeclared identifier
+  GAME1007_Traveler.vcxproj -> D:\GAME1007_M2_WilliamsEthan\Debug\GAME1007_Traveler.exe
