@@ -76,14 +76,14 @@ public:
 	}
 
 
-	void SetDoor(const int m_x, const int m_y, const int m_iToLevel, const int m_iDestX, const int m_iDestY)
+	void SetDoor(const int x, const int y, const int iToLevel, const int iDestX, const int iDestY)
 	{
 
-		 m_x;
-		 m_y;
-		 m_iToLevel;
-		 m_iDestX;
-		 m_iDestY;
+		 m_x = x;
+		 m_y = y;
+		 m_iToLevel = iToLevel;
+		 m_iDestX = iDestX;
+		 m_iDestY= iDestY;
 	}
 
 };

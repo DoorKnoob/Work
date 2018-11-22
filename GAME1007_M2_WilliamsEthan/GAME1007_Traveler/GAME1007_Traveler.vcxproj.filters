@@ -26,6 +26,12 @@
     <Text Include="Level2.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Level3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Level4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes.h">
