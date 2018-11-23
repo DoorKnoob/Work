@@ -1,18 +1,18 @@
 #pragma once
 
-class Pistol 
+class Weapons
 {
 public:
 	bool m_owned; 
 	string m_name;
 	string m_sound; 
 	
-	Pistol() // Default Constructor
+	Weapons() // Default Constructor
 	{
 
 	}
 
-	Pistol(string name, string sound, bool owned) //Constructor
+	Weapons(string name, string sound, bool owned) //Constructor
 	{
 		m_owned = owned;
 		m_name = name;
