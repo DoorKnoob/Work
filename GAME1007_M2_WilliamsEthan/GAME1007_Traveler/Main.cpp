@@ -18,7 +18,7 @@ bool BuildMap(Level& l, string f) // Passing 2D array to function.
 			{
 				inFile >> temp;
 					l.map[row][col].SetBGTile(temp);
-					if (temp == 'M' || temp == '#' || temp == 'B' || temp == 'O') //Obstacles
+					if (temp == 'M' || temp == '#' || temp == 'B' || temp == 'O'|| temp == '%') //Obstacles
 					l.map[row][col].m_bIsObstacle = true;
 					if (temp == 'X') // Hazards
 						l.map[row][col].m_bIsHazard = true;
@@ -130,7 +130,7 @@ int main()
 		if (levels[currLevel].map[player.m_y][player.m_x].m_bIsHazard == true)
 		{
 			quit = true;
-			cout << "You have stepped in a puddle of bleach and died" << endl;
+			cout << "You have just fell into a pool of lava and died :(" << endl;
 		}
 
 			CheckDoor(levels[currLevel], player, currLevel);

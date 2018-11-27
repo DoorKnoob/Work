@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-#include "Classes.h"
+#define NUM 5 // In C++11 we can also use constexpr, but it's different.
 using namespace std;
-#define NUM 5
 
 void printMenu(void)
 {
-	cout << "\nBuy A Weapon [B]\nCheck Your Balance [C]\nExit The Store [X]\n\n Please Choose An Option: ";
+	cout << "\nBuy Weapon [B]\nCheck Balance [C]\nStart Simulation [X]\n\nEnter Option: ";
 }
 
 void printMoney(const int& m)
@@ -21,22 +20,21 @@ void printBuy(const string* n, const int* c, const bool* o)
 		cout << "\n" << "[" << i + 1 << "] " << n[i];
 		cout << ": $" << c[i] << (o[i] == true ? " -Owned" : "");
 	}
-	cout << "\nReturn to Store [X]\n\nEnter Number to Buy: ";
+	cout << "\nReturn to Menu [X]\n\nEnter Number to Buy: ";
 }
 
 int main()
 {
-	const int numberOfWeapons = 5;
-	Weapons weapons[numberOfWeapons]; 
 	bool wOwned[NUM] = { false };
 	string wNames[NUM] = { "Pistol", "Shotgun", "SMG", "Rifle", "Bazooka" };
 	string wActions[NUM] = { "BANG!", "BOOM!", "BRR-RAK-AK-AK-AK-AK-AK!", "RAT-TAT-TAT-TAT-TAT!", "FOOSSS-KABOOM!" };
-	int wPrices[5] = { 100, 250, 500, 750, 1000 };
+	int wCosts[5] = { 100, 250, 500, 750, 1000 };
 
 	bool buy, inStore = true;
 	char optM, optB;
 	int optI, numWeapons = 0, pMoney = 1000;
 
+	//While loop for the store. 
 	while (inStore) // Store stage.
 	{
 		printMenu();
@@ -46,7 +44,7 @@ int main()
 			buy = true;
 			while (buy == true)
 			{
-				printBuy(wNames, wPrices, wOwned);
+				printBuy(wNames, wCosts, wOwned);
 				cin >> optB;
 				if (optB == 'x' || optB == 'X')
 					buy = 0;
@@ -55,11 +53,11 @@ int main()
 					optI = optB - 49;
 					if (wOwned[optI] == true) // Already has weapon
 						cout << "Weapon already owned!" << endl;
-					else if (wPrices[optI] > pMoney) // Can't afford weapon
+					else if (wCosts[optI] > pMoney) // Can't afford weapon
 						cout << "You cannot afford that weapon!" << endl;
 					else
 					{
-						pMoney -= wPrices[optI];
+						pMoney -= wCosts[optI];
 						wOwned[optI] = true;
 						numWeapons++;
 						cout << "Weapon purchased!" << endl;
@@ -74,34 +72,12 @@ int main()
 		else if (optM == 'x' || optM == 'X')
 		{
 			if (numWeapons > 0)
-				inStore = false;
+				cout << "Welcome to the simulation. Please choose a weapon that you'd like to use. or press X to quit. \n";
 			else
-				cout << "You cannot exit the store without buying one weapon!\n";
+				cout << "You cannot start the simulation without a weapon!\n";
 		}
 	}
 	cout << "\nGood-bye!" << endl;
 	system("pause");
 	return 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 }

@@ -1,0 +1,4 @@
+﻿  Main.cpp
+d:\game1007_m3_williamsethan\game1007_traveler\main.cpp(78): error C2065: 'Game': undeclared identifier
+d:\game1007_m3_williamsethan\game1007_traveler\main.cpp(78): error C2146: syntax error: missing ';' before identifier 'game'
+d:\game1007_m3_williamsethan\game1007_traveler\main.cpp(78): error C2065: 'game': undeclared identifier

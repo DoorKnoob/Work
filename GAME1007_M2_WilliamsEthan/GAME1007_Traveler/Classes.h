@@ -1,7 +1,6 @@
 #pragma once
 #define ROWS 24
 #define COLS 32
-
 /* Important note: x coordinate is player's COLUMN position and
    y coordinate is player's ROW position. Don't mix these up! */
 
