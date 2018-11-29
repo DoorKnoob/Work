@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
+#include "Classes.h"
 #define NUM 5 // In C++11 we can also use constexpr, but it's different.
 using namespace std;
 
 void printMenu(void)
 {
-	cout << "\nBuy Weapon [B]\nCheck Balance [C]\nStart Simulation [X]\n\nEnter Option: ";
+	cout << "\nBuy Weapon [B]\nCheck Balance [C]\nExit Store [X]\n\nEnter Option: ";
 }
 
 void printMoney(const int& m)
@@ -20,11 +21,19 @@ void printBuy(const string* n, const int* c, const bool* o)
 		cout << "\n" << "[" << i + 1 << "] " << n[i];
 		cout << ": $" << c[i] << (o[i] == true ? " -Owned" : "");
 	}
-	cout << "\nReturn to Menu [X]\n\nEnter Number to Buy: ";
+	cout << "\nReturn to Store [X]\n\nEnter Number to Buy: ";
 }
 
 int main()
 {
+	
+	
+	Weapon weapon[5] = { Weapon(false, "Pistol", "Bang Bang!!!"),
+	 Weapon(false, "Rifle", "Bratata!!"),
+	 Weapon(false, "Sword", "Shiiiiiiiiiinggg!"),
+	 Weapon(false, "Shotgun", "BOOM Chk Chk!!!"),
+	 Weapon(false, "Pistol", "Bang Bang!!!") };
+	
 	bool wOwned[NUM] = { false };
 	string wNames[NUM] = { "Pistol", "Shotgun", "SMG", "Rifle", "Bazooka" };
 	string wActions[NUM] = { "BANG!", "BOOM!", "BRR-RAK-AK-AK-AK-AK-AK!", "RAT-TAT-TAT-TAT-TAT!", "FOOSSS-KABOOM!" };
@@ -34,7 +43,6 @@ int main()
 	char optM, optB;
 	int optI, numWeapons = 0, pMoney = 1000;
 
-	//While loop for the store. 
 	while (inStore) // Store stage.
 	{
 		printMenu();
@@ -72,9 +80,9 @@ int main()
 		else if (optM == 'x' || optM == 'X')
 		{
 			if (numWeapons > 0)
-				cout << "Welcome to the simulation. Please choose a weapon that you'd like to use. or press X to quit. \n";
+				inStore = false;
 			else
-				cout << "You cannot start the simulation without a weapon!\n";
+				cout << "You cannot exit the store without buying one weapon!\n";
 		}
 	}
 	cout << "\nGood-bye!" << endl;

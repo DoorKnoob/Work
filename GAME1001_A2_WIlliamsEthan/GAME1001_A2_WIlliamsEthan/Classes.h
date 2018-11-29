@@ -1,25 +1,23 @@
 #pragma once
-
-class Weapons
+#include <string>
+using namespace std; 
+class Weapon
 {
 public:
-	bool m_owned; 
+	bool m_owned;
 	string m_name;
 	string m_sound; 
+
+	Weapon() //Default Constructor
+	{
+		
+	}
 	
-	Weapons() // Default Constructor
+	Weapon(bool m_owned, string m_name, string m_sound) //Constructor
 	{
-
+		m_owned; 
+		m_name;
+		m_sound;
 	}
-
-	Weapons(string name, string sound, bool owned) //Constructor
-	{
-		m_owned = owned;
-		m_name = name;
-		m_sound = sound;
-	}
-
-
-
 };
 
