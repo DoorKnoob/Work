@@ -1,3 +1,2 @@
 ﻿  Main.cpp
-d:\game1001_a2_williamsethan\game1001_a2_williamsethan\main.cpp(32): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Weapon'
-  d:\game1001_a2_williamsethan\game1001_a2_williamsethan\main.cpp(32): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+  GAME1001_A2_WIlliamsEthan.vcxproj -> D:\GAME1001_A2_WIlliamsEthan\x64\Debug\GAME1001_A2_WIlliamsEthan.exe
