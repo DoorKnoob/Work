@@ -47,10 +47,9 @@ class LOTile : public Sprite
 {
 
 public:
-
-	int m_x;
-	int m_y; 
-
+	int SetX(int x); 
+	int SetY;
+	
 	LOTile() //Default Constructor
 	{
 
@@ -59,8 +58,8 @@ public:
 
 	LOTile(int x, int y) // Non-Default Constructor
 	{
-		m_x = x; 
-		m_y = y;
+		SetX(x);
+		SetY(y);
 	}
 };
 
