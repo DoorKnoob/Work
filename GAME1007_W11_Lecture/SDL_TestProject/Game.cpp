@@ -34,7 +34,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 			return false; // Window init fail.
 		}
 		IMG_Init(IMG_INIT_PNG); // Initializing image system.
-		m_image = IMG_Load("walk-right.png");
+		m_image = IMG_Load("Player.png");
 		if (m_image == 0)
 		{
 			cout << "image load fail" << endl;

@@ -1,0 +1,3 @@
+﻿  Main.cpp
+d:\cstring practice\cstring practice\main.cpp(20): warning C4018: '<': signed/unsigned mismatch
+  cString practice.vcxproj -> D:\cString practice\Debug\cString practice.exe
