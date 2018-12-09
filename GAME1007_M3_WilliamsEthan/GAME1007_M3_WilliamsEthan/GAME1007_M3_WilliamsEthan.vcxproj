@@ -81,6 +81,7 @@
     <Link>
       <AdditionalLibraryDirectories>C:\SDL\SDL2-2.0.8\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,7 +129,6 @@
     <ClInclude Include="Game.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Level.txt" />
     <Text Include="Level1.txt" />
     <Text Include="Level2.txt" />
     <Text Include="Level3.txt" />

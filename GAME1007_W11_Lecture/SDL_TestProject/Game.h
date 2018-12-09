@@ -15,9 +15,8 @@ private:
 	bool m_bLeftPressed;
 	bool m_bRightPressed;
 	int m_iFPS;
-	int m_iTickCtr = 0;
-	int m_iTickMax = 8;
-	// 
+	int m_iTickCtr = 0; // In-class initialization - okay for now.
+	int m_iTickMax = 8; // Determines animation speed.
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	SDL_Surface* m_image;

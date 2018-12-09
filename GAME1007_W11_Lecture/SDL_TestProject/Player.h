@@ -16,7 +16,7 @@ public:
 	int m_y;
 	int m_iSpeed;
 	int m_iFrameCtr = 0;
-	int m_iFrameMax = 6; 
+	int m_iFrameMax = 6;
 	bool m_bRight = true;
 	SDL_Rect m_rSrc;
 	SDL_Rect m_rDst;
@@ -24,12 +24,11 @@ public:
 	{
 		m_x = 1024 / 2;
 		m_y = 768 / 2;
-		m_iSpeed = -100000000;
+		m_iSpeed = 2;
 		m_rSrc.x = m_rSrc.y = 0;
 		m_rSrc.w = m_rDst.w = 44;
-		m_rSrc.h= m_rDst.h = 64;
+		m_rSrc.h = m_rDst.h = 64;
 		UpdateDst();
-		
 	}
 	void MoveX(int m)
 	{
@@ -43,14 +42,15 @@ public:
 	}
 	const SDL_Rect* GetSrc() { return &m_rSrc; }
 	const SDL_Rect* GetDst() { return &m_rDst; }
-	void AdvancedAnim()
+	void AdvanceAnim()
 	{
 		m_iFrameCtr++;
 		if (m_iFrameCtr == m_iFrameMax)
 		{
-			m_iFrameCtr = 0;
+			m_iFrameCtr = 0; // Resetting frame counter.
 		}
-		m_rSrc.x = 44 * m_iFrameCtr;//Prints appropriate cell
+		m_rSrc.x = 44 * m_iFrameCtr; // Prints appropriate 'cell.'
+		
 	}
 	void SetIdle()
 	{

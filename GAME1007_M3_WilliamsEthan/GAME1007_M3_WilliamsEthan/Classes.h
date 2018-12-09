@@ -48,6 +48,7 @@ public:
 	int m_x;
 	int m_y;
 
+
 	LOTile() //Default Constructor
 	{
 
@@ -58,6 +59,8 @@ public:
 	{
 		m_x = x;
 		m_y = y;
+		SetX(x);
+		SetY(y); 
 	}
 };
 
@@ -67,14 +70,23 @@ class BGTile : public Sprite
 public:
 	bool m_bIsObstacle;
 	bool m_bIsHazard;
-
-
+	
 	void SetBGTile(const char output)
 	{
 		m_cOutput = output;
 		m_bIsObstacle = false;
 		m_bIsHazard = false;
 	}
+	void SetRec()
+	{
+		if (m_cOutput == '.')
+			m_rSrc = { 0, 0, 32, 32 };
+		else if (m_cOutput == 'M')
+			m_rSrc = { 32, 0, 32, 32 };
+	}
+	
+	
+
 
 };
 
@@ -82,12 +94,56 @@ class Player : public LOTile
 {
 public:
 
-	Player(int x, int y) : LOTile(x, y)
+	int m_iSpeed;
+	int m_iFrameCtr = 0;
+	int m_iFrameMax = 6;
+	bool m_bRight = true;
 
+	void UpdateDst()
 	{
-		m_cOutput = '@';
+		m_rDst.x = m_x;
+		m_rDst.y = m_y;
 	}
 
+	Player(int x, int y, SDL_Renderer* r, SDL_Texture* t) : LOTile(x, y)
+
+	{
+		m_pRenderer = r; 
+		m_rSrc = { 0, 0, 32, 32 };	
+		SetImage(r, t); 
+		m_rDst.w = 32;
+		m_rDst.h = 32;
+		m_cOutput = '@';
+		UpdateDst();
+	}
+
+	void MoveX(int m)
+	{
+		m_x += m * m_iSpeed;
+		UpdateDst();
+	}
+	void MoveY(int m)
+	{
+		m_y += m * m_iSpeed;
+		UpdateDst();
+	}
+	const SDL_Rect* GetSrc() { return &m_rSrc; }
+	const SDL_Rect* GetDst() { return &m_rDst; }
+	void AdvanceAnim()
+	{
+		m_iFrameCtr++;
+		if (m_iFrameCtr == m_iFrameMax)
+		{
+			m_iFrameCtr = 0; // Resetting frame counter.
+		}
+		m_rSrc.x = 44 * m_iFrameCtr; // Prints appropriate 'cell.'
+
+	}
+	void SetIdle()
+	{
+		m_iFrameCtr = 0;
+		m_rSrc.x = 44 * m_iFrameCtr;
+	}
 };
 
 
@@ -104,7 +160,7 @@ public:
 	}
 
 
-	void SetDoor(const int x, const int y, const int iToLevel, const int iDestX, const int iDestY)
+	void SetDoor(const int x, const int y, const int iToLevel, const int iDestX, const int iDestY, SDL_Renderer* r, SDL_Texture* t)
 	{
 
 		m_x = x;
@@ -112,6 +168,9 @@ public:
 		m_iToLevel = iToLevel;
 		m_iDestX = iDestX;
 		m_iDestY = iDestY;
+		SetX();
+		SetY();
+		SetImage(); 
 	}
 
 };
@@ -130,12 +189,12 @@ public:
 		m_iNumDoors = 0;
 	}
 
-	void AddDoor(const int m_x, const int m_y, const int m_iToLevel, const int m_iDestX, const int m_iDestY)
+	void AddDoor(const int m_x, const int m_y, const int m_iToLevel, const int m_iDestX, const int m_iDestY, SDL_Renderer* r, SDL_Texture* t)
 	{
 
 		if (m_iNumDoors < 3)
 		{
-			doors[m_iNumDoors].SetDoor(m_x, m_y, m_iToLevel, m_iDestX, m_iDestY);
+			doors[m_iNumDoors].SetDoor(m_x, m_y, m_iToLevel, m_iDestX, m_iDestY, r, t);
 			m_iNumDoors++;
 		}
 	}

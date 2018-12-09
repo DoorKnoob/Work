@@ -34,7 +34,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 			return false; // Window init fail.
 		}
 		IMG_Init(IMG_INIT_PNG); // Initializing image system.
-		m_image = IMG_Load("Player.png");
+		m_image = IMG_Load("walk-right.png");
 		if (m_image == 0)
 		{
 			cout << "image load fail" << endl;
@@ -80,7 +80,7 @@ bool Game::tick()
 		if (m_bGotTick == false)
 		{
 			m_bGotTick = true;
-			cout << "Tick " << tick << " @ " << count << endl;
+			//cout << "Tick " << tick << " @ " << count << endl;
 			return true;
 		}
 		return false;
@@ -100,25 +100,25 @@ void Game::update(Player& p)
 		p.MoveX(-1);
 		p.m_bRight = false;
 	}
-		
 	if (m_bRightPressed)
 	{
 		p.MoveX(1);
 		p.m_bRight = true;
 	}
-		
-	if (m_bUpPressed || m_bDownPressed || m_bLeftPressed || m_bRightPressed) // Player is moving
+	if (m_bUpPressed || m_bDownPressed || m_bLeftPressed || m_bRightPressed) // Player is moving.
 	{
-		m_iTickCtr++;
 		if (m_iTickCtr == m_iTickMax)
 		{
-			m_iTickCtr = 0;
-			p.AdvancedAnim();
+			m_iTickCtr = 0; // Reset the tick ctr.
+			p.AdvanceAnim();
 		}
 		m_iTickCtr++;
 	}
 	else
+	{
+		m_iTickCtr = 0;
 		p.SetIdle();
+	}
 }
 
 void Game::handleEvents()
@@ -185,7 +185,7 @@ void Game::handleEvents()
 void Game::render(Player& p)
 {
 	SDL_RenderClear(m_pRenderer); // Clear the screen to the draw color.
-	SDL_RenderCopyEx(m_pRenderer, m_texture, p.GetSrc(), p.GetDst(), 0, 0, (p.m_bRight?SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL));
+	SDL_RenderCopyEx(m_pRenderer, m_texture, p.GetSrc(), p.GetDst(), 0, 0, (p.m_bRight?SDL_FLIP_NONE:SDL_FLIP_HORIZONTAL));
 	SDL_RenderPresent(m_pRenderer); // Draw anew.
 }
 
