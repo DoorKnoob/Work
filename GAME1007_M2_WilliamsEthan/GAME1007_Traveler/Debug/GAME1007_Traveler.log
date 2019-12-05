@@ -1,2 +1,2 @@
 ﻿  Main.cpp
-  GAME1007_Traveler.vcxproj -> D:\GAME1007_M2_WilliamsEthan\Debug\GAME1007_Traveler.exe
+LINK : fatal error LNK1104: cannot open file 'SDL2.lib'
